@@ -18,3 +18,6 @@ qtcAddDeployment()
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES += \
+    qmldir
