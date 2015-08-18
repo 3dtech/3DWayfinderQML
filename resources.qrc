@@ -1,7 +1,19 @@
 <RCC>
-    <qresource prefix="/images">
+    <qresource>
         <file>images/ad.png</file>
         <file>images/yah.png</file>
         <file>images/logo-black.png</file>
+        <file>js/log.js</file>
+        <file>js/MapQML.js</file>
+        <file>js/MapQMLMover.js</file>
+        <file>js/QMLTimer.js</file>
+        <file>js/WayfinderIncludes.js</file>
+        <file>js/WayfinderOptionsQML.js</file>
+        <file>js/WayfinderQML.js</file>
+        <file>js/WayfinderQML.min.js</file>
+        <file>qml/DynImage.qml</file>
+        <file>qml/WayfinderQML.qml</file>
+        <file>qml/QMLTimer.qml</file>
+        <file>qmldir</file>
     </qresource>
 </RCC>

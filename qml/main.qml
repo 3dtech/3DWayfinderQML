@@ -1,15 +1,18 @@
-import QtQuick 2.0
-import "WayfinderQML.js" as WayfinderQML
+import QtQuick 2.4
+import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.3
+
+import WayfinderQML 1.0
 
 Rectangle {
     id: main
-    width: 360
-    height: 360
+    width: 640
+    height: 480
+    visible: true
 
     property var wayfinder;
 
     onHeightChanged: {
-        console.log("onHeightChanged")
         if(main && main.wayfinder){
             main.wayfinder.resize();
         }

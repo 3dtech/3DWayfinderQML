@@ -1,12 +1,12 @@
 #include <QtGui/QGuiApplication>
-#include "qtquick2applicationviewer.h"
+#include "qtquick2applicationviewer/qtquick2applicationviewer.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
     QtQuick2ApplicationViewer viewer;
-    viewer.setMainQmlFile(QStringLiteral("qml/3DWayfinderQML/main.qml"));
+    viewer.setMainQmlFile(QStringLiteral("qrc:/qml/WayfinderQML.qml"));
     viewer.showExpanded();
 
     return app.exec();

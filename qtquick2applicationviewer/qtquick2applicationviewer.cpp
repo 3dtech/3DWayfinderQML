@@ -68,7 +68,7 @@ void QtQuick2ApplicationViewer::setMainQmlFile(const QString &file)
 #if defined(Q_OS_ANDROID) && !defined(Q_OS_ANDROID_NO_SDK)
     setSource(QUrl(QLatin1String("assets:/")+d->mainQmlFile));
 #else
-    setSource(QUrl::fromLocalFile(d->mainQmlFile));
+    setSource(QUrl(d->mainQmlFile));
 #endif
 }
 

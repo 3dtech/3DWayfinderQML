@@ -1,4 +1,4 @@
-Qt.include("WayfinderIncludes.js")
+Qt.include("/js/WayfinderIncludes.js")
 WayfinderAPI.LOCATION = "http://api.3dwayfinder.com/";
 
 /**
@@ -27,7 +27,7 @@ var WayfinderQML = Wayfinder2D.extend({
 
     overideLogistics: function(){
         var me = this;
-        var imageComponent = Qt.createComponent("DynImage.qml");
+        var imageComponent = Qt.createComponent("/qml/DynImage.qml");
 
         function finishCreation(){
             var imageLoader = Logistics.getTypeFunction("image");
@@ -35,10 +35,11 @@ var WayfinderQML = Wayfinder2D.extend({
 
                 if(dt){
                     dt.data = imageComponent.createObject(this.canvas, {"source": dt.url});
+
                     if(dt.data === null || dt.data.status === Image.Error){
                         dt.failed();
                     }else if(dt.data.status === Image.Ready){
-                         dt.ready();
+                        dt.ready();
                     }
                     else {
                         dt.data.statusChanged.connect(function(){

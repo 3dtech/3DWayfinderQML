@@ -1,2 +1,2 @@
-module 3DWayfinderQML
-3DWayfinderQML 1.0 main.qml
+module Wayfinder
+WayfinderQML 1.0 qrc:/qml/WayfinderQML.qml
