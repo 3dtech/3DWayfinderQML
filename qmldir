@@ -1,2 +1,2 @@
 module Wayfinder
-WayfinderQML 1.0 qrc:/qml/WayfinderQML.qml
+Wayfinder2D 1.0 qrc:/qml/WayfinderQML.qml
