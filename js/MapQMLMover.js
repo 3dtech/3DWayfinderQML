@@ -38,7 +38,8 @@ var MapQMLMover=Map2DMover.extend({
         */
 		// Scroll zoom
         toucharea.wheel.connect(ClassCallback(this, this.onWheel));
-        toucharea.released(ClassCallback(this, this.onRelease));
+        toucharea.released.connect(ClassCallback(this, this.onRelease));
+        toucharea.canceled.connect(ClassCallback(this, this.onRelease));
         //this.bindMouseWheel(ClassCallback(this, this.onWheel));
     },
 
@@ -79,8 +80,6 @@ var MapQMLMover=Map2DMover.extend({
             else
                 panVector = vec2.set(this.vecBuf, 0, 0);
 
-            // Gives slow touch devices a oppertunity to catch up
-            console.log("onMouseMove", panVector);
             this.pan(panVector, false);
             this.mouseDelta = v;
         }
@@ -91,7 +90,6 @@ var MapQMLMover=Map2DMover.extend({
     },
 
     onRelease: function(e){
-        console.log("onRelease");
         this.mouseDelta = false;
         clearTimeout(this.timeout);
         this.cbUpdate(true);

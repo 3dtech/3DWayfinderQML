@@ -1,17 +1,15 @@
-import QtQuick 2.4
-import QtQuick.Controls 1.4
-import QtQuick.Controls.Styles 1.3
+import QtQuick 2.5
 
 import "/js/WayfinderQML.js" 1.0 as WayfinderQML
 
 Rectangle {
     id: main
-    width: 640
-    height: 480
+    width: 800
+    height: 600
     visible: true
-    color: "#FF0000"
 
-    property var wayfinder;
+    property var wayfinder
+    property var projectId: "fd16d5410b0b53aad53ff6e5ecaf821d"
 
     onHeightChanged: {
         if(main && main.wayfinder){
@@ -30,12 +28,10 @@ Rectangle {
             width: parent.width
             height: parent.height
             antialiasing: true
-            property alias toucharea : toucharea
             visible: true
 
-            onPaint: function(){
-                console.log("onPaint", canvas, canvas.getContext("2d"));
-            }
+            property double zoom: 1.0
+            property alias toucharea : toucharea
 
             onAvailableChanged: start();
 
@@ -46,7 +42,7 @@ Rectangle {
 
             function start(){
                 main.wayfinder = new WayfinderQML.WayfinderQML(canvas);
-                main.wayfinder.open("e6e0103e4c5f8707de06b89adcf97cbd");
+                main.wayfinder.open(main.projectId);
                 main.wayfinder.cbOnDataLoaded = function(){
                     console.log("Data loaded", canvas.width, canvas.height, canvas.antialiasing);
                 };

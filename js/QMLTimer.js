@@ -1,9 +1,9 @@
 var counterT = 0;
 var freeTimers = [];
+var firstTime = true;
 function setTimeout(func, time){
 
     function Timer() {
-        console.log("new Timer", counterT++);
         return Qt.createQmlObject("import QtQuick 2.0; Timer {}", main);
     }
 
@@ -13,22 +13,24 @@ function setTimeout(func, time){
     }
     else {
         timer = new Timer();
+        timer.triggered.connect(function(){
+            freeTimers.push(timer);
+            func(arguments);
+        });
     }
 
     timer.interval = time;
     timer.repeat = false;
-    timer.triggered.connect(function(){
-        freeTimers.push(timer);
-        func(arguments);
-    });
-
     timer.start();
 
+    return timer;
 }
 
 
 
 function clearTimeout(timer){
-    if(timer)
+    if(timer){
         timer.stop();
+        freeTimers.push(timer);
+    }
 }
