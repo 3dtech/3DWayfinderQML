@@ -1,17 +1,19 @@
 TEMPLATE += app
 
-QT += qml quick
+QT += qml quick bluetooth
 
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
-    qtquick2applicationviewer/qtquick2applicationviewer.cpp
+    src/qtquick2applicationviewer.cpp \
+    src/blescanner.cpp \
+    src/bledeviceinfo.cpp
 
 # Installation path
 # target.path =
 
 # Please do not modify the following two lines. Required for deployment.
-include(qtquick2applicationviewer/qtquick2applicationviewer.pri)
-qtcAddDeployment()
+include(src/qtquick2applicationviewer.pri)
+#qtcAddDeployment()
 
 RESOURCES += \
     resources.qrc
@@ -20,4 +22,6 @@ DISTFILES += \
     qmldir
 
 HEADERS += \
-    qtquick2applicationviewer/qtquick2applicationviewer.h
+    src/qtquick2applicationviewer.h \
+    src/blescanner.h \
+    src/bledeviceinfo.h
